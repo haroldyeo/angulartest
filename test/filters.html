@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+     <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
+  </head>
+
+  <body ng-app="mainApp" ng-controller="articlesController">
+
+    <p>Etablissement: {{article.fullName() | uppercase}}</p>
+    <p>Date de création: <span ng-bind="article.dateCreation" ></span></p>
+    <p>Articles</p>
+    <ul>
+      <li ng-repeat="art in article.items | orderBy : price">
+        {{'Nom: ' + art.name + '   -   Prix: ' + art.price}}
+      </li>
+    </ul>
+
+  </body>
+
+  <script>
+  // definir app
+    var mainApp = angular.module("mainApp",[]);
+
+// register controller
+    mainApp.controller('articlesController', function($scope){
+      $scope.article = {
+
+        boutique : 'Harold\'s boutique',
+        pays : "Cote d\'Ivoire",
+        dateCreation : "12/10/2005",
+        items: [
+          {name:"table",price:"12.95"}, {name:"chair",price:"8.10"},
+          {name:"board",price:"20.05"}, {name:"ac",price:"40.05"}
+        ],
+        fullName : function(){
+          var obj = $scope.article;
+          return obj.boutique + " " + obj.pays;
+        }
+
+      };
+    });
+
+  </script>
+</html>
