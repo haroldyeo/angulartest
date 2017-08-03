@@ -1,16 +1,12 @@
-function factorial(result, num) {
-    var temp = result;
-    temp *= num;
-    console.log(temp);
-    num--;
-    if (num != 1) {
-        factorial(temp, num);
-    }
-    else {
-        result = temp;
-        console.log("temp: " + temp);
-        console.log("result: " + result);
-        return result;
-    }
+var num = 6;
+var temp = num;
+var fact = 1;
+factorial(fact, temp);
+function factorial(fact, temp) {
+    fact *= temp;
+    temp--;
+    if (temp > 1)
+        factorial(fact, temp);
+    else
+        console.log(fact);
 }
-console.log(factorial(1, 10));

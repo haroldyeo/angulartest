@@ -1,17 +1,14 @@
-function factorial(result:number, num:number):number{
-    var temp:number = result;
-    temp *= num;
-    console.log(temp);
-    num--;
-    if(num!=1){
-        factorial(temp, num);
-    } else{
-        result = temp;
-        console.log("temp: "+temp);
-        console.log("result: "+result);
-        return result;
-    }
-    
-}
 
-console.log(factorial(1,10));
+var num:number = 6;
+var temp:number=num;
+var fact:number = 1;
+factorial(fact,temp);
+
+function factorial(fact,temp){
+    fact *=temp;
+    temp--;
+    if(temp>1)
+        factorial(fact,temp);
+    else
+        console.log(fact);
+}
